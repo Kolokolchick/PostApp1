@@ -12,3 +12,4 @@ Route::get('/users', App\Http\Controllers\User\API\IndexController::class);
 Route::get('/posts', App\Http\Controllers\Post\API\IndexController::class);
 Route::get('/posts/{id}', App\Http\Controllers\Post\API\ShowController::class);
 Route::post('/posts', App\Http\Controllers\Post\API\StoreController::class);
+Route::get('/notifications/{id}', App\Http\Controllers\User\API\Notification\ShowController::class);
