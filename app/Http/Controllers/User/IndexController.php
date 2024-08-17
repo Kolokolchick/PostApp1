@@ -12,6 +12,6 @@ class IndexController extends Controller
     {
         $users = User::paginate(5);
 
-        return view('admin.users.index', ['users' => UserResource::collection($users)]);
+        return view('admin.users.index', ['users' => $users]);
     }
 }

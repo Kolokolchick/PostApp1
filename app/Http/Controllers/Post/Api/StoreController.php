@@ -8,6 +8,7 @@ use App\Http\Resources\Post\IndexResource;
 use App\Models\Post;
 use App\Models\User;
 use App\Notifications\Post\NewPostNotification;
+use Illuminate\Support\Facades\Notification;
 
 class StoreController extends Controller
 {
@@ -19,9 +20,7 @@ class StoreController extends Controller
 
         $users = User::all();
 
-        foreach ($users as $user) {
-            $user->notify(new NewPostNotification($post));
-        }
+        Notification::send($users, new NewPostNotification($post)); 
         
         return new IndexResource($post);
     }

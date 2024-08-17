@@ -9,14 +9,9 @@ use Illuminate\Support\Facades\Hash;
 
 class StoreController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-
-        $data['password'] = Hash::make($data['password']);
 
         User::create($data);
 

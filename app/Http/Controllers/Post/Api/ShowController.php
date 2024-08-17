@@ -9,9 +9,9 @@ use App\Http\Resources\Post\ShowResource;
 
 class ShowController extends Controller
 {
-    public function __invoke($id)
+    public function __invoke(Post $post)
     {
-        $post = Post::with('author')->findOrFail($id);
+        $post->load('author');
         
         return new ShowResource($post);
     }

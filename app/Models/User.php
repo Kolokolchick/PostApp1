@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -51,9 +52,8 @@ class User extends Authenticatable
         return $this->hasMany(Post::class, 'author_id');
     }
 
-    public function notifications()
+    public function setPasswordAttribute($value)
     {
-        return $this->morphMany('Illuminate\Notifications\DatabaseNotification', 'notifiable');
-
+        $this->attributes['password'] = Hash::make($value);
     }
 }

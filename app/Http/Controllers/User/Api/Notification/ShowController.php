@@ -8,10 +8,8 @@ use App\Http\Resources\NotificationResource;
 
 class ShowController extends Controller
 {
-    public function __invoke($id)
+    public function __invoke(User $user)
     {        
-        $user = User::findOrFail($id);
-
         $notifications = $user->notifications;
 
         return NotificationResource::collection($notifications);
