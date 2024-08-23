@@ -7,9 +7,9 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/users', App\Http\Controllers\User\API\IndexController::class);
+Route::get('/users', App\Http\Controllers\User\Api\IndexController::class);
 
-Route::get('/posts', App\Http\Controllers\Post\API\IndexController::class);
-Route::get('/posts/{post}', App\Http\Controllers\Post\API\ShowController::class);
-Route::post('/posts', App\Http\Controllers\Post\API\StoreController::class);
-Route::get('/notifications/{user}', App\Http\Controllers\User\API\Notification\ShowController::class);
+Route::get('/posts', App\Http\Controllers\Post\Api\IndexController::class);
+Route::get('/posts/{post}', App\Http\Controllers\Post\Api\ShowController::class);
+Route::post('/posts', App\Http\Controllers\Post\Api\StoreController::class);
+Route::get('/notifications/{user}', App\Http\Controllers\User\Api\Notification\ShowController::class);
